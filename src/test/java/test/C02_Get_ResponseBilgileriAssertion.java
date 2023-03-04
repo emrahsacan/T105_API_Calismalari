@@ -17,20 +17,25 @@ public class C02_Get_ResponseBilgileriAssertion {
          */
 @Test
     public void get01(){
+
     // 1- Gerekli olan URL ve Body hazirla
-    String url= "https://restful-booker.herokuapp.com/booking/10";
+    String url="https://restful-booker.herokuapp.com/booking/44";
 
     // 2- Soruda isteniyorsa Expected Data hazirla
 
     // 3 - Donen Response'i kaydet
-    Response response = given().when().get(url);
+    Response response=given().when().get(url); //Request gönderdik ve dönen reponse'u kaydettik
 
+    response.prettyPrint();
 
-    //4- Assertion
-
-
-
-
+    //4 - Assertion
+    response.
+            then().
+            assertThat().
+            statusCode(200).
+            contentType("application/json; charset=utf-8").
+            header("Server","Cowboy").
+            statusLine("HTTP/1.1 200 OK");
 
 
 }
