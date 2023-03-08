@@ -24,6 +24,8 @@ public class C04_Put_ResponseBilgileriAssertion {
             ve status Line’in HTTP/1.1 200 OK
       */
 
+    // PUT işlemi için yukarıdaki body API dökümanımızda bize verilmiş olmalı
+
     @Test
     public void put01(){
 
@@ -38,6 +40,7 @@ public class C04_Put_ResponseBilgileriAssertion {
                 "id":70
                 }
          */
+
 
         JSONObject reqBody= new JSONObject();
         reqBody.put("title","Ahmet");

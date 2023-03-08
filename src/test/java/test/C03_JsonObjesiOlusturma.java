@@ -36,7 +36,7 @@ public class C03_JsonObjesiOlusturma {
                   "lastname":"Brown"
                   }
          */
-        JSONObject innerJsonObje= new JSONObject();
+        JSONObject innerJsonObje= new JSONObject();   // içiçe JSON objeler için innerJsonObje
         innerJsonObje.put("checkin","2018-01-01");
         innerJsonObje.put("checkout","2019-01-01");
 
