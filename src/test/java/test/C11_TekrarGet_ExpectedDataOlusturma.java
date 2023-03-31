@@ -1,56 +1,52 @@
 package test;
 
-import groovy.lang.DelegatesTo;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.json.JSONObject;
-import org.json.JSONPointer;
 import org.junit.Assert;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 
-
-public class C11_Get_ExpectedDataOlusturma {
+public class C11_TekrarGet_ExpectedDataOlusturma {
     /*
     https://jsonplaceholder.typicode.com/posts/22 url'ine
     bir GET request yolladigimizda donen response body’sinin
     asagida verilen ile ayni oldugunu test ediniz
    Response body :
-    {
-    "userId":3,
-    "id":22,
-    "title":"dolor sint quo a velit explicabo quia nam",
-    "body":"eos qui et ipsum ipsam suscipit aut\nsed omnis non odio\nexpedita ear
-    um mollitia molestiae aut atque rem suscipit\nnam impedit esse"
-    }
+     {
+     "userId":3,
+     "id":22,
+     "title":"dolor sint quo a velit explicabo quia nam",
+     "body":"eos qui et ipsum ipsam suscipit aut\nsed omnis non odio\nexpedita ear
+     um mollitia molestiae aut atque rem suscipit\nnam impedit esse"
+     }
      */
     @Test
     public void get01(){
-        //1- URL Hazırla
-        String url="https://jsonplaceholder.typicode.com/posts/22";
+        // 1- URL hazirla
+        String url = "https://jsonplaceholder.typicode.com/posts/22";
 
-        //2- Expected data hazirla
+        // 2- Expected Data hazırla
 
-        JSONObject expBody = new JSONObject();
-
+        JSONObject expBody= new JSONObject();
         expBody.put("userId",3);
         expBody.put("id",22);
         expBody.put("title","dolor sint quo a velit explicabo quia nam");
-        expBody.put("body","eos qui et ipsum ipsam suscipit aut\nsed omnis non odio\nexpedita ear " +
-                "um mollitia molestiae aut atque rem suscipit\nnam impedit esse");
+        expBody.put("body","eos qui et ipsum ipsam suscipit aut\nsed omnis non odio\nexpedita earum" +
+                " mollitia molestiae aut atque rem suscipit\nnam impedit esse");
 
         System.out.println(expBody);
 
-        // 3- Response'i kaydet
+        // Respons'i kaydet
 
         Response response = given().when().get(url);
 
         response.prettyPrint();
 
-        // 4- Assertion
+        //4- Assertion
 
-        // NOT: JUnit Assertion yapabilmemiz için öncelikle response'ı JSONPath objesine donusturmek gerekiyor
+        // not: JUnit Assertion yapabilmemiz için öncelikle response'ı JSONPath objesine donusturmek gerekiyor
 
         JsonPath resJsonPath=response.jsonPath();
 
@@ -62,4 +58,5 @@ public class C11_Get_ExpectedDataOlusturma {
 
 
     }
+
 }

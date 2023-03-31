@@ -37,6 +37,5 @@ public class C02_Get_ResponseBilgileriAssertion {
             header("Server","Cowboy").
             statusLine("HTTP/1.1 200 OK");
 
-
 }
 }
