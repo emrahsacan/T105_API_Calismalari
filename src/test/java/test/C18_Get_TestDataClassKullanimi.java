@@ -48,9 +48,11 @@ response body'sinin asagida verilen ile ayni oldugunu test ediniz
         JsonPath resJPath = response.jsonPath(); // burayı response body'sindeki testlerimizi yapabilmemiz için hazırladık
 
         Assert.assertEquals(testDataJsonPlaceHolder.basariliStatusCode,response.statusCode()); // Status Code body içerisinde olmaığı için
-                                                                                                // direk response üzerinden test edebiliyoruz
-
-
+                                                                                           // direk response üzerinden test edebiliyoruz
+        Assert.assertEquals(expData.get("userId"),resJPath.get("userId"));
+        Assert.assertEquals(expData.get("id"),resJPath.get("id"));
+        Assert.assertEquals(expData.get("title"),resJPath.get("title"));
+        Assert.assertEquals(expData.get("body"),resJPath.get("body"));
 
     }
 }
